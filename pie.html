@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- Load c3.css -->
+<link href="c3-0.4.11/c3.css" rel="stylesheet" type="text/css">
+
+<!-- Load d3.js and c3.js -->
+<script src="c3-0.4.11/d3.js" charset="utf-8"></script>
+<script src="c3-0.4.11/c3.min.js"></script>
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="icon" type="image/gif" href="images/animated_favicon1.gif">
+  <meta charset="utf-8">
+  <title>統計圖表</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header-wrapper">
+        <div id="header" class="container">
+            <div id="logo">
+                <h1><a href="index.html">高雄文化地圖</a></h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="current_page_item"><a href="religion.html">宗教介紹</a></li>
+                    <li><a href="map.html">文化地圖</a></li>
+                    <li><a href="table.html">路線規劃</a></li>
+                    <li><a href="pie.html">統計圖表</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- end #header -->
+    
+    <div id="page">
+        <div id="content">
+            <div id="chart" style="height: 300px; width: 100%;"></div>
+            <div id="chart1" style="height: 300px; width: 100%;"></div>
+            
+            
+        </div>
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+        <!-- end #content -->
+        <div style="clear: both;">&nbsp;</div>
+
+        
+    </div>
+    <!-- end #page --> 
+</div>
+<div id="footer">
+    <p>Design by Y.Y.Chen & J.L.Huang</p>
+</div>
+
+        <script type="text/javascript">
+                var chart = new CanvasJS.Chart("chart",
+                {
+                    title:{
+                        text: "高雄市各宗教數量比例圓餅圖"
+                    },
+                                animationEnabled: true,
+                    theme: "theme2",
+                    data: [
+                    {        
+                        type: "doughnut",
+                        indexLabelFontFamily: "Garamond",       
+                        indexLabelFontSize: 20,
+                        startAngle:0,
+                        indexLabelFontColor: "dimgrey",       
+                        indexLabelLineColor: "darkgrey", 
+                        toolTipContent: "{y} %",                    
+
+                        dataPoints: [
+                        {  y: Math.floor(1119/1658*100), indexLabel: "道教 {y}%" },
+                        {  y: Math.floor(337/1658*100), indexLabel: "佛教 {y}%" },
+                        {  y: Math.floor(126/1658*100), indexLabel: "基督教 {y}%" },
+                        {  y: Math.floor(18/1658*100),  indexLabel: "天主教 {y}%"},
+                        {  y: Math.floor(1/1658*100), indexLabel: "伊斯蘭教 {y}%" },
+                        {  y: Math.floor(30/1658*100), indexLabel: "一貫道 {y}%"},
+                        {  y: Math.floor(17/1658*100),  indexLabel: "儒教 {y}%"},
+                        {  y: Math.floor(40/1658*100),  indexLabel: "其他 {y}%"}
+
+                        ]
+                    }
+                    ]
+                });
+
+                chart.render();
+            
+        </script>
+
+        <script type="text/javascript">
+            var chart = new CanvasJS.Chart("chart1",
+            {
+              title:{
+              text: "高雄市各行政區區宗教個數長條圖"   
+              },
+              axisY:{
+                title:"寺廟數量(間)"   
+              },
+              animationEnabled: true,
+              data: [
+              {        
+                type: "stackedColumn",
+                toolTipContent: "{label}<br/><span style='\"'color: {color};'\"'><strong>{name}</strong></span>: {y}間",
+                name: "道教",
+                showInLegend: "true",
+                dataPoints: [
+                {  y: 20 , label: "楠梓區"},
+                {  y: 27, label: "左營區" },
+                {  y: 28, label: "鼓山區" },
+                {  y: 33, label: "三民區" },
+                {  y: 15, label: "鹽埕區"},
+                {  y: 7, label: "前金區"},
+                {  y: 11, label: "新興區"},
+                {  y: 19, label: "苓雅區"},
+                {  y: 53, label: "前鎮區"},
+                {  y: 18, label: "旗津區"},
+                {  y: 30, label: "小港區"},
+                {  y: 66, label: "鳳山區"},
+                {  y: 65, label: "大寮區"},
+                {  y: 17, label: "鳥松區"},
+                {  y: 57,label: "林園區"},
+                {  y: 35, label: "仁武區"},
+                {  y: 62, label: "大樹區"},
+                {  y: 19, label: "大社區"},
+                {  y: 45, label: "岡山區"},
+                {  y: 41, label: "路竹區"},
+                {  y: 19, label: "橋頭區"},
+                {  y: 40, label: "梓官區"},
+                {  y: 31, label: "彌陀區"},
+                {  y: 15, label: "永安區"},
+                {  y: 39, label: "燕巢區"},
+                {  y: 33, label: "田寮區"},
+                {  y: 28, label: "阿蓮區"},
+                {  y: 22, label: "茄萣區"},
+                {  y: 18, label: "湖內區"},
+                {  y: 61, label: "旗山區"},
+                {  y: 37, label: "美濃區"},
+                {  y: 23, label: "內門區"},
+                {  y: 30, label: "杉林區"},
+                {  y: 35, label: "甲仙區"},
+                {  y: 38, label: "六龜區"},
+                {  y: 0, label: "茂林區"},
+                {  y: 0, label: "桃源區"},
+                {  y: 1, label: "那瑪夏區"}
+                ]
+              },  {        
+                type: "stackedColumn",
+                toolTipContent: "{label}<br/><span style='\"'color: {color};'\"'><strong>{name}</strong></span>: {y}間",
+                name: "佛教",
+                showInLegend: "true",
+                dataPoints: [
+                {  y: 8 , label: "楠梓區"},
+                {  y: 7, label: "左營區" },
+                {  y: 6, label: "鼓山區" },
+                {  y: 6, label: "三民區" },
+                {  y: 0, label: "鹽埕區"},
+                {  y: 1, label: "前金區"},
+                {  y: 2, label: "新興區"},
+                {  y: 3, label: "苓雅區"},
+                {  y: 11, label: "前鎮區"},
+                {  y: 3, label: "旗津區"},
+                {  y: 7, label: "小港區"},
+                {  y: 9, label: "鳳山區"},
+                {  y: 16, label: "大寮區"},
+                {  y: 13, label: "鳥松區"},
+                {  y: 11, label: "林園區"},
+                {  y: 14, label: "仁武區"},
+                {  y: 6, label: "大樹區"},
+                {  y: 9, label: "大社區"},
+                {  y: 11, label: "岡山區"},
+                {  y: 7, label: "路竹區"},
+                {  y: 7, label: "橋頭區"},
+                {  y: 4, label: "梓官區"},
+                {  y: 5, label: "彌陀區"},
+                {  y: 0, label: "永安區"},
+                {  y: 12, label: "燕巢區"},
+                {  y: 5, label: "田寮區"},
+                {  y: 18, label: "阿蓮區"},
+                {  y: 3, label: "茄萣區"},
+                {  y: 4, label: "湖內區"},
+                {  y: 24, label: "旗山區"},
+                {  y: 31, label: "美濃區"},
+                {  y: 10, label: "內門區"},
+                {  y: 18, label: "杉林區"},
+                {  y: 13, label: "甲仙區"},
+                {  y: 34, label: "六龜區"},
+                {  y: 0, label: "茂林區"},
+                {  y: 1, label: "桃源區"},
+                {  y: 0, label: "那瑪夏區"}
+                ]
+              },{        
+                type: "stackedColumn",
+                toolTipContent: "{label}<br/><span style='\"'color: {color};'\"'><strong>{name}</strong></span>: {y}間",
+                name: "天主教",
+                showInLegend: "true",
+                dataPoints: [
+                {  y: 0 , label: "楠梓區"},
+                {  y: 0, label: "左營區" },
+                {  y: 0, label: "鼓山區" },
+                {  y: 5, label: "三民區" },
+                {  y: 0, label: "鹽埕區"},
+                {  y: 0, label: "前金區"},
+                {  y: 0, label: "新興區"},
+                {  y: 4, label: "苓雅區"},
+                {  y: 4, label: "前鎮區"},
+                {  y: 0, label: "旗津區"},
+                {  y: 0, label: "小港區"},
+                {  y: 3, label: "鳳山區"},
+                {  y: 2, label: "大寮區"},
+                {  y: 1, label: "鳥松區"},
+                {  y: 0, label: "林園區"},
+                {  y: 1, label: "仁武區"},
+                {  y: 0, label: "大樹區"},
+                {  y: 0, label: "大社區"},
+                {  y: 1, label: "岡山區"},
+                {  y: 1, label: "路竹區"},
+                {  y: 1, label: "橋頭區"},
+                {  y: 1, label: "梓官區"},
+                {  y: 0, label: "彌陀區"},
+                {  y: 0, label: "永安區"},
+                {  y: 0, label: "燕巢區"},
+                {  y: 0, label: "田寮區"},
+                {  y: 0, label: "阿蓮區"},
+                {  y: 0, label: "茄萣區"},
+                {  y: 0, label: "湖內區"},
+                {  y: 1, label: "旗山區"},
+                {  y: 0, label: "美濃區"},
+                {  y: 0, label: "內門區"},
+                {  y: 0, label: "杉林區"},
+                {  y: 0, label: "甲仙區"},
+                {  y: 2, label: "六龜區"},
+                {  y: 0, label: "茂林區"},
+                {  y: 0, label: "桃源區"},
+                {  y: 0, label: "那瑪夏區"}
+                ]
+              },{        
+                type: "stackedColumn",
+                toolTipContent: "{label}<br/><span style='\"'color: {color};'\"'><strong>{name}</strong></span>: {y}間",
+                name: "基督教",
+                showInLegend: "true",
+                dataPoints: [
+                {  y: 1 , label: "楠梓區"},
+                {  y: 3, label: "左營區" },
+                {  y: 1, label: "鼓山區" },
+                {  y: 18, label: "三民區" },
+                {  y: 1, label: "鹽埕區"},
+                {  y: 5, label: "前金區"},
+                {  y: 6, label: "新興區"},
+                {  y: 12, label: "苓雅區"},
+                {  y: 13, label: "前鎮區"},
+                {  y: 0, label: "旗津區"},
+                {  y: 1, label: "小港區"},
+                {  y: 18, label: "鳳山區"},
+                {  y: 4, label: "大寮區"},
+                {  y: 2, label: "鳥松區"},
+                {  y: 0, label: "林園區"},
+                {  y: 3, label: "仁武區"},
+                {  y: 3, label: "大樹區"},
+                {  y: 2, label: "大社區"},
+                {  y: 9, label: "岡山區"},
+                {  y: 1, label: "路竹區"},
+                {  y: 2, label: "橋頭區"},
+                {  y: 3, label: "梓官區"},
+                {  y: 3, label: "彌陀區"},
+                {  y: 1, label: "永安區"},
+                {  y: 2, label: "燕巢區"},
+                {  y: 1, label: "田寮區"},
+                {  y: 3, label: "阿蓮區"},
+                {  y: 1, label: "茄萣區"},
+                {  y: 4, label: "湖內區"},
+                {  y: 2, label: "旗山區"},
+                {  y: 2, label: "美濃區"},
+                {  y: 2, label: "內門區"},
+                {  y: 2, label: "杉林區"},
+                {  y: 1, label: "甲仙區"},
+                {  y: 6, label: "六龜區"},
+                {  y: 0, label: "茂林區"},
+                {  y: 0, label: "桃源區"},
+                {  y: 0, label: "那瑪夏區"}
+                ]
+              },{        
+                type: "stackedColumn",
+                toolTipContent: "{label}<br/><span style='\"'color: {color};'\"'><strong>{name}</strong></span>: {y}間間",
+                name: "伊斯蘭教",
+                showInLegend: "true",
+                dataPoints: [
+                {  y: 0 , label: "楠梓區"},
+                {  y: 0, label: "左營區" },
+                {  y: 0, label: "鼓山區" },
+                {  y: 0, label: "三民區" },
+                {  y: 0, label: "鹽埕區"},
+                {  y: 0, label: "前金區"},
+                {  y: 0, label: "新興區"},
+                {  y: 1, label: "苓雅區"},
+                {  y: 0, label: "前鎮區"},
+                {  y: 0, label: "旗津區"},
+                {  y: 0, label: "小港區"},
+                {  y: 0, label: "鳳山區"},
+                {  y: 0, label: "大寮區"},
+                {  y: 0, label: "鳥松區"},
+                {  y: 0, label: "林園區"},
+                {  y: 0, label: "仁武區"},
+                {  y: 0, label: "大樹區"},
+                {  y: 0, label: "大社區"},
+                {  y: 0, label: "岡山區"},
+                {  y: 0, label: "路竹區"},
+                {  y: 0, label: "橋頭區"},
+                {  y: 0, label: "梓官區"},
+                {  y: 0, label: "彌陀區"},
+                {  y: 0, label: "永安區"},
+                {  y: 0, label: "燕巢區"},
+                {  y: 0, label: "田寮區"},
+                {  y: 0, label: "阿蓮區"},
+                {  y: 0, label: "茄萣區"},
+                {  y: 0, label: "湖內區"},
+                {  y: 0, label: "旗山區"},
+                {  y: 0, label: "美濃區"},
+                {  y: 0, label: "內門區"},
+                {  y: 0, label: "杉林區"},
+                {  y: 0, label: "甲仙區"},
+                {  y: 0, label: "六龜區"},
+                {  y: 0, label: "茂林區"},
+                {  y: 0, label: "桃源區"},
+                {  y: 0, label: "那瑪夏區"}
+                ]
+              },{        
+                type: "stackedColumn",
+                toolTipContent: "{label}<br/><span style='\"'color: {color};'\"'><strong>{name}</strong></span>: {y}間",
+                name: "一貫道",
+                showInLegend: "true",
+                dataPoints: [
+                {  y: 0 , label: "楠梓區"},
+                {  y: 0, label: "左營區" },
+                {  y: 0, label: "鼓山區" },
+                {  y: 0, label: "三民區" },
+                {  y: 0, label: "鹽埕區"},
+                {  y: 0, label: "前金區"},
+                {  y: 0, label: "新興區"},
+                {  y: 0, label: "苓雅區"},
+                {  y: 1, label: "前鎮區"},
+                {  y: 0, label: "旗津區"},
+                {  y: 1, label: "小港區"},
+                {  y: 1, label: "鳳山區"},
+                {  y: 0, label: "大寮區"},
+                {  y: 2, label: "鳥松區"},
+                {  y: 1, label: "林園區"},
+                {  y: 0, label: "仁武區"},
+                {  y: 1, label: "大樹區"},
+                {  y: 2, label: "大社區"},
+                {  y: 1, label: "岡山區"},
+                {  y: 0, label: "路竹區"},
+                {  y: 0, label: "橋頭區"},
+                {  y: 0, label: "梓官區"},
+                {  y: 0, label: "彌陀區"},
+                {  y: 0, label: "永安區"},
+                {  y: 5, label: "燕巢區"},
+                {  y: 1, label: "田寮區"},
+                {  y: 1, label: "阿蓮區"},
+                {  y: 0, label: "茄萣區"},
+                {  y: 1, label: "湖內區"},
+                {  y: 2, label: "旗山區"},
+                {  y: 2, label: "美濃區"},
+                {  y: 2, label: "內門區"},
+                {  y: 1, label: "杉林區"},
+                {  y: 0, label: "甲仙區"},
+                {  y: 5, label: "六龜區"},
+                {  y: 0, label: "茂林區"},
+                {  y: 0, label: "桃源區"},
+                {  y: 0, label: "那瑪夏區"}
+                ]
+              },{        
+                type: "stackedColumn",
+                toolTipContent: "{label}<br/><span style='\"'color: {color};'\"'><strong>{name}</strong></span>: {y}間",
+                name: "儒教",
+                showInLegend: "true",
+                dataPoints: [
+                {  y: 1 , label: "楠梓區"},
+                {  y: 0, label: "左營區" },
+                {  y: 0, label: "鼓山區" },
+                {  y: 0, label: "三民區" },
+                {  y: 0, label: "鹽埕區"},
+                {  y: 0, label: "前金區"},
+                {  y: 0, label: "新興區"},
+                {  y: 2, label: "苓雅區"},
+                {  y: 4, label: "前鎮區"},
+                {  y: 0, label: "旗津區"},
+                {  y: 1, label: "小港區"},
+                {  y: 2, label: "鳳山區"},
+                {  y: 0, label: "大寮區"},
+                {  y: 0, label: "鳥松區"},
+                {  y: 1, label: "林園區"},
+                {  y: 1, label: "仁武區"},
+                {  y: 0, label: "大樹區"},
+                {  y: 0, label: "大社區"},
+                {  y: 0, label: "岡山區"},
+                {  y: 0, label: "路竹區"},
+                {  y: 0, label: "橋頭區"},
+                {  y: 0, label: "梓官區"},
+                {  y: 0, label: "彌陀區"},
+                {  y: 0, label: "永安區"},
+                {  y: 1, label: "燕巢區"},
+                {  y: 0, label: "田寮區"},
+                {  y: 0, label: "阿蓮區"},
+                {  y: 0, label: "茄萣區"},
+                {  y: 0, label: "湖內區"},
+                {  y: 2, label: "旗山區"},
+                {  y: 0, label: "美濃區"},
+                {  y: 0, label: "內門區"},
+                {  y: 1, label: "杉林區"},
+                {  y: 0, label: "甲仙區"},
+                {  y: 0, label: "六龜區"},
+                {  y: 0, label: "茂林區"},
+                {  y: 0, label: "桃源區"},
+                {  y: 0, label: "那瑪夏區"}
+                ]
+              }             
+              ]
+              ,
+              legend:{
+                cursor:"pointer",
+                itemclick: function(e) {
+                  if (typeof (e.dataSeries.visible) ===  "undefined" || e.dataSeries.visible) {
+                      e.dataSeries.visible = false;
+                  }
+                  else
+                  {
+                    e.dataSeries.visible = true;
+                  }
+                  chart.render();
+                }
+              }
+            });
+
+            chart.render();
+          </script>
+</body>
+</html>
