@@ -265,7 +265,7 @@ input
 			                var locate1="";
 			                var locate2="";
 			                var Lxml=0;
-			                Lxml=loadXMLFile("https://maps.googleapis.com/maps/api/geocode/xml?address="+District[i]+Address[i]+"&key");
+			                Lxml=loadXMLFile("https://maps.googleapis.com/maps/api/geocode/xml?address="+District[i]+Address[i]+"&key=AIzaSyBpAujUnAx41RblN81-8kKgjw9vvJl--uU");
 			                locate1=Lxml.getElementsByTagName("lat")[0].firstChild.nodeValue;
 			                locate2=Lxml.getElementsByTagName("lng")[0].firstChild.nodeValue;
 			                console.log(i);
